@@ -35,4 +35,27 @@ public class Rating implements Entity {
      */
     private Map<String, Boolean> likes;
     private Date creationDate;
+
+    @Override
+    public String getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getBeerId(){
+        return id;
+    }
+
+    public Date getCreationDate(){
+        return creationDate;
+    }
+
+    public Map getLikes(){
+        return likes;
+    }
+
 }
