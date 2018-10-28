@@ -16,4 +16,24 @@ public class User implements Entity {
     private String id;
     private String name;
     private String photo;
+
+    @Override
+    public String getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName(){
+        return name;
+    }
+
+    public String getPhoto(){
+        return photo;
+    }
 }
+
+

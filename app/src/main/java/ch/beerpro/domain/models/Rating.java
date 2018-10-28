@@ -1,11 +1,13 @@
 package ch.beerpro.domain.models;
 
 import com.google.firebase.firestore.Exclude;
+
+import java.util.Date;
+import java.util.Map;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.*;
 
 @Data
 @NoArgsConstructor
@@ -47,8 +49,10 @@ public class Rating implements Entity {
     }
 
     public String getBeerId(){
-        return id;
+        return beerId;
     }
+
+    public String getBeerName(){ return beerName;}
 
     public Date getCreationDate(){
         return creationDate;
@@ -58,4 +62,23 @@ public class Rating implements Entity {
         return likes;
     }
 
+    public String getUserPhoto(){ return userPhoto;}
+
+    public String getPhoto(){ return photo;}
+
+    public String getUserId() {
+        return this.userId;
+    }
+
+    public String getUserName() {
+        return this.userName;
+    }
+
+    public float getRating() {
+        return this.rating;
+    }
+
+    public String getComment(){
+        return this.comment;
+    }
 }

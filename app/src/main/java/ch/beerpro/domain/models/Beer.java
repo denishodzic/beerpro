@@ -1,11 +1,12 @@
 package ch.beerpro.domain.models;
 
 import com.google.firebase.firestore.Exclude;
+
+import java.io.Serializable;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.io.Serializable;
 
 @Data
 @NoArgsConstructor
@@ -26,12 +27,12 @@ public class Beer implements Entity, Serializable {
 
     @Override
     public String getId() {
-        return null;
+        return this.id;
     }
 
     @Override
     public void setId(String id) {
-
+        this.id = id;
     }
 
     public String getCategory(){
@@ -40,5 +41,21 @@ public class Beer implements Entity, Serializable {
 
     public String getManufacturer(){
         return manufacturer;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public String getPhoto() {
+        return this.photo;
+    }
+
+    public float getAvgRating() {
+        return this.avgRating;
+    }
+
+    public int getNumRatings() {
+        return this.numRatings;
     }
 }

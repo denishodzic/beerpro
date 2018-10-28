@@ -7,6 +7,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -15,17 +19,10 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import ch.beerpro.R;
-import ch.beerpro.presentation.MainViewModel;
-import ch.beerpro.presentation.details.DetailsActivity;
 import ch.beerpro.domain.models.Rating;
 import ch.beerpro.domain.models.Wish;
-
-import androidx.fragment.app.Fragment;
-import com.bumptech.glide.util.ViewPreloadSizeProvider;
-import lombok.val;
-
-import java.util.ArrayList;
-import java.util.List;
+import ch.beerpro.presentation.MainViewModel;
+import ch.beerpro.presentation.details.DetailsActivity;
 
 public class RatingsFragment extends Fragment
         implements OnRatingsItemInteractionListener, SwipeRefreshLayout.OnRefreshListener {
@@ -53,7 +50,7 @@ public class RatingsFragment extends Fragment
         model = ViewModelProviders.of(this).get(MainViewModel.class);
         model.getAllRatingsWithWishes().observe(this, this::updateRatings);
 
-        val layoutManager = new LinearLayoutManager(getActivity());
+        LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
         recyclerView.setLayoutManager(layoutManager);
 
         adapter = new RatingsRecyclerViewAdapter(this, this, model.getCurrentUser());

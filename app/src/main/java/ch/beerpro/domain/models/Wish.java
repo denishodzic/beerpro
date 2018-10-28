@@ -2,12 +2,13 @@ package ch.beerpro.domain.models;
 
 import com.google.firebase.firestore.Exclude;
 import com.google.firebase.firestore.IgnoreExtraProperties;
+
+import java.util.Date;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
-
-import java.util.Date;
 
 @IgnoreExtraProperties
 @Data
@@ -44,10 +45,18 @@ public class Wish implements Entity {
 
     @Override
     public void setId(String id) {
+        this.id = id;
+    }
 
+    public String getUserId(){
+        return userId;
     }
 
     public String getBeerId(){
         return beerId;
+    }
+
+    public Date getAddedAt() {
+        return addedAt;
     }
 }

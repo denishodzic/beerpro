@@ -1,17 +1,18 @@
 package ch.beerpro.domain.models;
 
 import com.google.firebase.firestore.Exclude;
+
+import java.util.Date;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 
-import java.util.Date;
-
 @Data
 @NoArgsConstructor
 @RequiredArgsConstructor
-public class Search implements Entity {
+    public class Search implements Entity {
     public static final String COLLECTION = "searches";
     public static final String FIELD_USER_ID = "userId";
     public static final String FIELD_CREATION_DATE = "creationDate";
@@ -24,4 +25,26 @@ public class Search implements Entity {
     private String term;
 
     private Date creationDate = new Date();
+
+    @Override
+    public String getId() {
+        return id;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public String getTerm(){
+        return term;
+    }
+
+    public Date getCreationDate(){
+        return creationDate;
+    }
+
+    @Override
+    public void setId(String id) {
+        this.id = id;
+    }
 }

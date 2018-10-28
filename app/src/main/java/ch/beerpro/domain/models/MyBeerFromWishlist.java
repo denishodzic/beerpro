@@ -1,8 +1,8 @@
 package ch.beerpro.domain.models;
 
-import lombok.Data;
-
 import java.util.Date;
+
+import lombok.Data;
 
 @Data
 public class MyBeerFromWishlist implements MyBeer {
@@ -17,6 +17,11 @@ public class MyBeerFromWishlist implements MyBeer {
     @Override
     public String getBeerId() {
         return wish.getBeerId();
+    }
+
+    @Override
+    public Beer getBeer() {
+        return beer;
     }
 
     @Override
