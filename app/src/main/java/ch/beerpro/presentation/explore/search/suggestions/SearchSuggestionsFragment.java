@@ -6,6 +6,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.Arrays;
+import java.util.List;
+
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.DividerItemDecoration;
@@ -14,9 +18,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import ch.beerpro.R;
 import ch.beerpro.domain.models.Search;
 import ch.beerpro.presentation.explore.search.SearchViewModel;
-
-import java.util.Arrays;
-import java.util.List;
 
 
 public class SearchSuggestionsFragment extends Fragment {

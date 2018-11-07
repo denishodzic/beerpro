@@ -80,7 +80,7 @@ public class BeerCategoriesFragment extends Fragment {
          * The adapter registers the MainActivity (the listener) directly on the individual items of the grid, so
          * when the user clicks an item the activity will be notified, bypassing this fragment and its parent.
          *
-         * Note that we don't have to pass any items or a collection to the adapter, this is done with
+         * MyNote that we don't have to pass any items or a collection to the adapter, this is done with
          * submitList below.
          */
         BeerCategoriesRecyclerViewAdapter adapter = new BeerCategoriesRecyclerViewAdapter(listener);
@@ -104,7 +104,7 @@ public class BeerCategoriesFragment extends Fragment {
 
     /**
      * When the fragment is destroyed or detached from the activity (in this app, this only happens when a new
-     * activity is started), we reset the listener. Note that we don't have to do anything, the getBeerCategories
+     * activity is started), we reset the listener. MyNote that we don't have to do anything, the getBeerCategories
      * LiveData will automatically be unsubscribed.
      */
     @Override

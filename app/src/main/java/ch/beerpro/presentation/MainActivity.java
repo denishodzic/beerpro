@@ -5,11 +5,18 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+
+import com.firebase.ui.auth.AuthUI;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+import com.google.android.material.tabs.TabLayout;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.viewpager.widget.ViewPager;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import ch.beerpro.ui.discovercategories.DiscoverCategories;
 import ch.beerpro.R;
 import ch.beerpro.presentation.explore.BeerCategoriesFragment;
 import ch.beerpro.presentation.explore.BeerManufacturersFragment;
@@ -18,10 +25,6 @@ import ch.beerpro.presentation.profile.ProfileFragment;
 import ch.beerpro.presentation.ratings.RatingsFragment;
 import ch.beerpro.presentation.splash.SplashScreenActivity;
 import ch.beerpro.presentation.utils.ViewPagerAdapter;
-import com.firebase.ui.auth.AuthUI;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-import com.google.android.material.tabs.TabLayout;
 
 /**
  * The {@link MainActivity} is the entry point for logged-in users (actually, users start at the
@@ -77,7 +80,7 @@ public class MainActivity extends AppCompatActivity
         tabLayout.getTabAt(1).setIcon(R.drawable.ic_people_black_24dp);
         tabLayout.getTabAt(2).setIcon(R.drawable.ic_person_black_24dp);
 
-        /*
+        /*w
          * We want to change the title of the activity depending on the selected fragment. We can do this by
          * listening to the tabLayout's changes and setting the title accordingly:
          * */
@@ -130,10 +133,17 @@ public class MainActivity extends AppCompatActivity
     @Override
     public void onBeerCategorySelected(String name) {
         // TODO implement
+        Intent detailIntent = new Intent( this, DiscoverCategories.class);
+        detailIntent.putExtra("name", name);
+        startActivity(detailIntent);
+        //Log.i(name, "Test");
     }
 
     @Override
     public void onBeerManufacturerSelected(String name) {
         // TODO implement
+        Intent detailIntent = new Intent( this, DiscoverCategories.class);
+        detailIntent.putExtra("name", name);
+        startActivity(detailIntent);
     }
 }

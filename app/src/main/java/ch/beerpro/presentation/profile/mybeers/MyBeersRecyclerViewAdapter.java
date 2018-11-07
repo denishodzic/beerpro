@@ -7,6 +7,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+
+import com.bumptech.glide.request.RequestOptions;
+import com.google.firebase.auth.FirebaseUser;
+
+import java.text.DateFormat;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
 import androidx.recyclerview.widget.ListAdapter;
@@ -17,14 +23,11 @@ import ch.beerpro.GlideApp;
 import ch.beerpro.R;
 import ch.beerpro.domain.models.Beer;
 import ch.beerpro.domain.models.MyBeer;
+import ch.beerpro.domain.models.MyBeerFromFridge;
+import ch.beerpro.domain.models.MyBeerFromNote;
 import ch.beerpro.domain.models.MyBeerFromRating;
 import ch.beerpro.domain.models.MyBeerFromWishlist;
 import ch.beerpro.presentation.utils.DrawableHelpers;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
-import com.google.firebase.auth.FirebaseUser;
-
-import java.text.DateFormat;
 
 
 public class MyBeersRecyclerViewAdapter extends ListAdapter<MyBeer, MyBeersRecyclerViewAdapter.ViewHolder> {
@@ -92,8 +95,8 @@ public class MyBeersRecyclerViewAdapter extends ListAdapter<MyBeer, MyBeersRecyc
         @BindView(R.id.onTheListSince)
         TextView onTheListSince;
 
-        @BindView(R.id.removeFromWishlist)
-        Button removeFromWishlist;
+        @BindView(R.id.addOrRemoveFromFridge)
+        Button addOrRemoveFromFridge;
 
         ViewHolder(View view) {
             super(view);
@@ -101,9 +104,7 @@ public class MyBeersRecyclerViewAdapter extends ListAdapter<MyBeer, MyBeersRecyc
         }
 
         public void bind(MyBeer entry, OnMyBeerItemInteractionListener listener) {
-
             Beer item = entry.getBeer();
-
             name.setText(item.getName());
             manufacturer.setText(item.getManufacturer());
             category.setText(item.getCategory());
@@ -114,21 +115,35 @@ public class MyBeersRecyclerViewAdapter extends ListAdapter<MyBeer, MyBeersRecyc
             ratingBar.setRating(item.getAvgRating());
             numRatings.setText(itemView.getResources().getString(R.string.fmt_num_ratings, item.getNumRatings()));
             itemView.setOnClickListener(v -> listener.onMoreClickedListener(photo, item));
-            removeFromWishlist.setOnClickListener(v -> listener.onWishClickedListener(item));
+            addOrRemoveFromFridge.setOnClickListener(v -> listener.onRemoveFridgeClickedListener(item));
 
             String formattedDate =
                     DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.SHORT).format(entry.getDate());
             addedAt.setText(formattedDate);
 
-            if (entry instanceof MyBeerFromWishlist) {
+            if (entry instanceof MyBeerFromFridge) {
                 DrawableHelpers
-                        .setDrawableTint(removeFromWishlist, itemView.getResources().getColor(R.color.colorPrimary));
+                        .setDrawableTint(addOrRemoveFromFridge, itemView.getResources().getColor(R.color.colorPrimary));
+                addOrRemoveFromFridge.setText("entfernen");
+                onTheListSince.setText("im Kühlschrank seit");
+            } else if (entry instanceof MyBeerFromWishlist) {
+                DrawableHelpers.setDrawableTint(addOrRemoveFromFridge,
+                        itemView.getResources().getColor(android.R.color.holo_blue_dark));
+                addOrRemoveFromFridge.setOnClickListener(v -> listener.onFridgeClickedListener(item));
+                addOrRemoveFromFridge.setText("Kühlschrank");
                 onTheListSince.setText("auf der Wunschliste seit");
             } else if (entry instanceof MyBeerFromRating) {
-                DrawableHelpers.setDrawableTint(removeFromWishlist,
-                        itemView.getResources().getColor(android.R.color.darker_gray));
-                removeFromWishlist.setText("Wunschliste");
+                DrawableHelpers.setDrawableTint(addOrRemoveFromFridge,
+                        itemView.getResources().getColor(android.R.color.holo_green_dark));
+                addOrRemoveFromFridge.setOnClickListener(v -> listener.onFridgeClickedListener(item));
+                addOrRemoveFromFridge.setText("Kühlschrank");
                 onTheListSince.setText("beurteilt am");
+            } else if (entry instanceof MyBeerFromNote) {
+                DrawableHelpers.setDrawableTint(addOrRemoveFromFridge,
+                        itemView.getResources().getColor(android.R.color.holo_orange_dark));
+                addOrRemoveFromFridge.setOnClickListener(v -> listener.onFridgeClickedListener(item));
+                addOrRemoveFromFridge.setText("Kühlschrank");
+                onTheListSince.setText("Notiz erstellt am:");
             }
         }
     }

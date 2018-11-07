@@ -1,6 +1,11 @@
 package ch.beerpro.presentation.profile.mywishlist;
 
 import android.util.Pair;
+
+import com.google.android.gms.tasks.Task;
+
+import java.util.List;
+
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -9,9 +14,6 @@ import ch.beerpro.data.repositories.CurrentUser;
 import ch.beerpro.data.repositories.WishlistRepository;
 import ch.beerpro.domain.models.Beer;
 import ch.beerpro.domain.models.Wish;
-import com.google.android.gms.tasks.Task;
-
-import java.util.List;
 
 public class WishlistViewModel extends ViewModel implements CurrentUser {
 

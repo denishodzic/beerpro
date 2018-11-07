@@ -1,12 +1,18 @@
 package ch.beerpro.domain.utils;
 
 import android.os.Handler;
+
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.ListenerRegistration;
+
+import javax.annotation.Nullable;
+
 import androidx.lifecycle.LiveData;
 import ch.beerpro.domain.models.Entity;
 import ch.beerpro.presentation.utils.EntityClassSnapshotParser;
-import com.google.firebase.firestore.*;
-
-import javax.annotation.Nullable;
 
 public class FirestoreQueryLiveData<T extends Entity> extends LiveData<T> implements EventListener<DocumentSnapshot> {
 

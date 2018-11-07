@@ -20,12 +20,16 @@ public class MyBeerFromWishlist implements MyBeer {
     }
 
     @Override
+    public Date getDate() {
+        return wish.getAddedAt();
+    }
+
+    @Override
     public Beer getBeer() {
         return beer;
     }
 
-    @Override
-    public Date getDate() {
-        return wish.getAddedAt();
+    public void setBeer(Beer beer) {
+        this.beer = beer;
     }
 }

@@ -1,6 +1,5 @@
 package ch.beerpro.presentation.ratings;
 
-import android.util.Log;
 import android.util.Pair;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,6 +8,12 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+
+import com.bumptech.glide.request.RequestOptions;
+import com.google.firebase.auth.FirebaseUser;
+
+import java.text.DateFormat;
+
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.DiffUtil;
@@ -18,14 +23,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import ch.beerpro.GlideApp;
 import ch.beerpro.R;
-import ch.beerpro.presentation.utils.EntityPairDiffItemCallback;
 import ch.beerpro.domain.models.Rating;
 import ch.beerpro.domain.models.Wish;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
-import com.google.firebase.auth.FirebaseUser;
-
-import java.text.DateFormat;
+import ch.beerpro.presentation.utils.EntityPairDiffItemCallback;
 
 import static ch.beerpro.presentation.utils.DrawableHelpers.setDrawableTint;
 

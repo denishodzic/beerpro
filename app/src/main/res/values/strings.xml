@@ -9,6 +9,8 @@
     <string name="fmt_ratings">%d Beurteilungen</string>
     <string name="title_activity_single_beer">SingleBeerActivity</string>
     <string name="title_activity_rating">Beurteilung hinzufügen</string>
+    <string name="title_activity_note">Notiz hinzufügen</string>
+
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
@@ -102,5 +104,6 @@
     <string name="title_activity_wishlist">Wunschliste</string>
     <string name="title_activity_myratings">Meine Bewertungen</string>
     <string name="title_activity_mybeers">Meine Biere</string>
+    <string name="title_discover_categories_activity">Bier entdecken</string>
     <string name="action_search">Bier suchen</string>
 </resources>

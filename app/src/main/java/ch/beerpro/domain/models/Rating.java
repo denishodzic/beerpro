@@ -48,37 +48,83 @@ public class Rating implements Entity {
         this.id = id;
     }
 
-    public String getBeerId(){
+    public String getBeerId() {
         return beerId;
     }
 
-    public String getBeerName(){ return beerName;}
-
-    public Date getCreationDate(){
-        return creationDate;
+    public void setBeerId(String beerId) {
+        this.beerId = beerId;
     }
 
-    public Map getLikes(){
-        return likes;
+    public String getBeerName() {
+        return beerName;
     }
 
-    public String getUserPhoto(){ return userPhoto;}
-
-    public String getPhoto(){ return photo;}
+    public void setBeerName(String beerName) {
+        this.beerName = beerName;
+    }
 
     public String getUserId() {
-        return this.userId;
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getUserName() {
-        return this.userName;
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
+    }
+
+    public String getUserPhoto() {
+        return userPhoto;
+    }
+
+    public void setUserPhoto(String userPhoto) {
+        this.userPhoto = userPhoto;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
     public float getRating() {
-        return this.rating;
+        return rating;
     }
 
-    public String getComment(){
-        return this.comment;
+    public void setRating(float rating) {
+        this.rating = rating;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public Map<String, Boolean> getLikes() {
+        return likes;
+    }
+
+    public void setLikes(Map<String, Boolean> likes) {
+        this.likes = likes;
+    }
+
+    public Date getCreationDate() {
+        return creationDate;
+    }
+
+    public void setCreationDate(Date creationDate) {
+        this.creationDate = creationDate;
     }
 }

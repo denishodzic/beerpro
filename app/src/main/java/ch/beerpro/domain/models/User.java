@@ -27,13 +27,19 @@ public class User implements Entity {
         this.id = id;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public String getPhoto(){
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getPhoto() {
         return photo;
     }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
 }
-
-

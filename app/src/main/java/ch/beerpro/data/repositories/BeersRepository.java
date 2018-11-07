@@ -1,16 +1,17 @@
 package ch.beerpro.data.repositories;
 
-import androidx.arch.core.util.Function;
-import androidx.lifecycle.LiveData;
-import ch.beerpro.domain.models.Beer;
-import ch.beerpro.domain.utils.FirestoreQueryLiveData;
-import ch.beerpro.domain.utils.FirestoreQueryLiveDataArray;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import androidx.arch.core.util.Function;
+import androidx.lifecycle.LiveData;
+import ch.beerpro.domain.models.Beer;
+import ch.beerpro.domain.utils.FirestoreQueryLiveData;
+import ch.beerpro.domain.utils.FirestoreQueryLiveDataArray;
 
 import static androidx.lifecycle.Transformations.map;
 import static androidx.lifecycle.Transformations.switchMap;

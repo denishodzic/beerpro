@@ -48,15 +48,27 @@ public class Wish implements Entity {
         this.id = id;
     }
 
-    public String getUserId(){
+    public String getUserId() {
         return userId;
     }
 
-    public String getBeerId(){
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getBeerId() {
         return beerId;
+    }
+
+    public void setBeerId(String beerId) {
+        this.beerId = beerId;
     }
 
     public Date getAddedAt() {
         return addedAt;
+    }
+
+    public void setAddedAt(Date addedAt) {
+        this.addedAt = addedAt;
     }
 }

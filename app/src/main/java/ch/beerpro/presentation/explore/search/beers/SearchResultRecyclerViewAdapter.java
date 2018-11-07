@@ -6,6 +6,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+
+import com.bumptech.glide.request.RequestOptions;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.ListAdapter;
 import androidx.recyclerview.widget.RecyclerView;
@@ -16,8 +19,6 @@ import ch.beerpro.R;
 import ch.beerpro.domain.models.Beer;
 import ch.beerpro.presentation.explore.search.beers.SearchResultFragment.OnItemSelectedListener;
 import ch.beerpro.presentation.utils.EntityDiffItemCallback;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.RequestOptions;
 
 
 public class SearchResultRecyclerViewAdapter extends ListAdapter<Beer, SearchResultRecyclerViewAdapter.ViewHolder> {

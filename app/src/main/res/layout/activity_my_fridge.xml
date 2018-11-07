@@ -10,9 +10,7 @@
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-    </androidx.recyclerview.widget.RecyclerView>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
     <include layout="@layout/content_empty_beer_list" />
 
@@ -30,4 +28,5 @@
             app:popupTheme="@style/AppTheme.PopupOverlay" />
 
     </com.google.android.material.appbar.AppBarLayout>
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

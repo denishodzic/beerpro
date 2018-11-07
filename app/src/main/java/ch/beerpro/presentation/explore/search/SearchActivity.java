@@ -9,6 +9,10 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+
+import com.google.android.material.tabs.TabLayout;
+import com.google.common.base.Strings;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProviders;
 import androidx.viewpager.widget.ViewPager;
@@ -19,8 +23,6 @@ import ch.beerpro.presentation.explore.search.beers.SearchResultFragment;
 import ch.beerpro.presentation.explore.search.suggestions.SearchSuggestionsFragment;
 import ch.beerpro.presentation.profile.mybeers.MyBeersViewModel;
 import ch.beerpro.presentation.profile.mybeers.OnMyBeerItemInteractionListener;
-import com.google.android.material.tabs.TabLayout;
-import com.google.common.base.Strings;
 
 public class SearchActivity extends AppCompatActivity
         implements SearchResultFragment.OnItemSelectedListener, SearchSuggestionsFragment.OnItemSelectedListener,
@@ -105,7 +107,12 @@ public class SearchActivity extends AppCompatActivity
     }
 
     @Override
-    public void onWishClickedListener(Beer item) {
-        searchViewModel.toggleItemInWishlist(item.getId());
+    public void onRemoveFridgeClickedListener(Beer item) {
+        searchViewModel.removeBeerFromFridge(item.getId());
+    }
+
+    @Override
+    public void onFridgeClickedListener(Beer item) {
+        searchViewModel.addBeerToFridge(item.getId());
     }
 }
